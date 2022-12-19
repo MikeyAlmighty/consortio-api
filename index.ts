@@ -10,16 +10,15 @@ dotenv.config();
 const app: Express = express();
 const PORT = process.env.PORT;
 
+app.use(cors())
+app.options('*', cors())
+
+
 // const aboutRouter = require("./routes/about");
 import productRouter from "./routes/products"
 import influencerRouter from "./routes/influencer"
 import brandRouter from "./routes/brands"
 
-app.options('*', cors()) // include before other routes
-
-app.use(cors({
-    origin: '*'
-}))
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
