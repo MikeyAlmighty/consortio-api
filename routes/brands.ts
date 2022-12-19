@@ -1,8 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import Brand from '../models/brand'
 
-const cors = require('cors')
-
 const brandRouter = express.Router();
 
 brandRouter.get("/", async (req: Request, res: Response) => {
@@ -20,12 +18,11 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
     res.json({})
 })
 
-brandRouter.options('/create', cors())
-brandRouter.post("/create", cors(), async (req: Request, res: Response) => {
+brandRouter.post("/", async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
     try {
         const brand = await Brand.collection.insertOne({ name, origin, IPR })
-        res.status(200).json(brand)
+        res.status(201)
     } catch (error) {
         res.status(400).json({ error })
         console.error(error)
