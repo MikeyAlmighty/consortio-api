@@ -20,7 +20,7 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
     res.json({})
 })
 
-brandRouter.options('/score', cors())
+brandRouter.options('/', cors())
 brandRouter.post("/", async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
     try {
