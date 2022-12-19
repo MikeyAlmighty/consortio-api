@@ -20,7 +20,6 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
 
 brandRouter.post("/", async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
-    console.log("HIT")
     try {
         const brand = await Brand.create({ name, origin, IPR })
         res.status(200).json(brand)

@@ -13,9 +13,10 @@ const PORT = process.env.PORT;
 // const aboutRouter = require("./routes/about");
 import productRouter from "./routes/products"
 import influencerRouter from "./routes/influencer"
+import brandRouter from "./routes/brands"
 
 // app.use(cors())
-app.use(cors({origin:true,credentials: true}));
+app.use(cors({origin:true, credentials: true}));
 app.use(bodyParser.json({ type: 'application/*+json' }))
 
 app.get('/', (req: Request, res: Response) => {
@@ -25,6 +26,7 @@ app.get('/', (req: Request, res: Response) => {
 // app.use("/about", aboutRouter);
 app.use("/products", productRouter);
 app.use("/influencer", influencerRouter);
+app.use("/brands", brandRouter);
 
 // Connect to DB
 if (process.env.MONGODB_URI) {
