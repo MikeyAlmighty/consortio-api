@@ -15,7 +15,8 @@ import productRouter from "./routes/products"
 import influencerRouter from "./routes/influencer"
 import brandRouter from "./routes/brands"
 
-// app.use(cors())
+app.options('*', cors()) // include before other routes
+
 app.use(cors({
     origin: '*'
 }))
