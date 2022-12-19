@@ -16,7 +16,9 @@ import influencerRouter from "./routes/influencer"
 import brandRouter from "./routes/brands"
 
 // app.use(cors())
-app.use(cors({origin:true, credentials: true}));
+app.use(cors({
+    origin: '*'
+}))
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
