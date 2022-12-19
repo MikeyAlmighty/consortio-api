@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
-var cors = require('cors')
+const cors = require('cors')
 // const mongoose = require('mongoose')
 import mongoose from 'mongoose'
 

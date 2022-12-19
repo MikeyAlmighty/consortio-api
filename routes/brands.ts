@@ -1,6 +1,8 @@
 import express, { Express, Request, Response } from 'express';
 import Brand from '../models/brand'
 
+const cors = require('cors')
+
 const brandRouter = express.Router();
 
 brandRouter.get("/", async (req: Request, res: Response) => {
@@ -18,6 +20,7 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
     res.json({})
 })
 
+brandRouter.options('/score', cors())
 brandRouter.post("/", async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
     try {
