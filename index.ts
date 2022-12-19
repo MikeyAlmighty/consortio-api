@@ -17,7 +17,13 @@ import brandRouter from "./routes/brands"
 
 // app.use(cors())
 app.use(cors({origin:true, credentials: true}));
-app.use(bodyParser.json({ type: 'application/*+json' }))
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
+
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');

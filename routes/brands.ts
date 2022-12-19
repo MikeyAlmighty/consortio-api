@@ -21,7 +21,7 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
 brandRouter.post("/", async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
     try {
-        const brand = await Brand.create({ name, origin, IPR })
+        const brand = await Brand.collection.insertOne({ name, origin, IPR })
         res.status(200).json(brand)
     } catch (error) {
         res.status(400).json({ error })
