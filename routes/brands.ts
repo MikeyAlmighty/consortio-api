@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from 'express';
+import { CallbackError } from 'mongoose'
 import Brand from '../models/brand'
 
 const brandRouter = express.Router();
@@ -18,14 +19,26 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
     res.json({})
 })
 
+brandRouter.delete("/:id", (req: Request, res: Response, next) => {
+     Brand.findByIdAndRemove(req.params.id, (error: CallbackError, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.status(200).json({
+        msg: data
+      })
+    }
+  })
+})
+
 brandRouter.post("/", async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
     try {
-        const brand = await Brand.collection.insertOne({ name, origin, IPR })
-        res.status(201)
+      await Brand.collection.insertOne({ name, origin, IPR })
+      res.status(201)
     } catch (error) {
-        res.status(400).json({ error })
-        console.error(error)
+      res.status(400).json({ error })
+      console.error(error)
     }
 })
 

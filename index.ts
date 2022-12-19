@@ -28,7 +28,6 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
 
-// app.use("/about", aboutRouter);
 app.use("/products", productRouter);
 app.use("/influencer", influencerRouter);
 app.use("/brands", brandRouter);

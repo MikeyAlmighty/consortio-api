@@ -12,6 +12,9 @@ const brandSchema = new Schema({
     active: {
         type: Boolean
     },
+    inceptionDate: {
+        type: Date
+    },
     IPR: {
       type: String,
       enum : ['Patent','Trade secret', 'Trademark', 'Copyright', 'Invention'],
