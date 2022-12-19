@@ -14,7 +14,8 @@ const PORT = process.env.PORT;
 import productRouter from "./routes/products"
 import influencerRouter from "./routes/influencer"
 
-app.use(cors())
+// app.use(cors())
+app.use(cors({origin:true,credentials: true}));
 app.use(bodyParser.json({ type: 'application/*+json' }))
 
 app.get('/', (req: Request, res: Response) => {
