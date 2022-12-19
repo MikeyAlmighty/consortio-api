@@ -20,8 +20,8 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
     res.json({})
 })
 
-brandRouter.options('/', cors())
-brandRouter.post("/", async (req: Request, res: Response) => {
+brandRouter.options('/create', cors())
+brandRouter.post("/create", cors(), async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
     try {
         const brand = await Brand.collection.insertOne({ name, origin, IPR })
