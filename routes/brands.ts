@@ -20,7 +20,7 @@ brandRouter.get("/:id", (req: Request, res: Response) => {
 })
 
 brandRouter.delete("/:id", (req: Request, res: Response, next) => {
-     Brand.findByIdAndRemove(req.params.id, (error: CallbackError, data) => {
+     Brand.findByIdAndRemove(req.params.id, (error: CallbackError, data: any) => {
     if (error) {
       return next(error);
     } else {
