@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
+var cors = require('cors')
 // const mongoose = require('mongoose')
 import mongoose from 'mongoose'
 
@@ -13,6 +14,7 @@ const PORT = process.env.PORT;
 import productRouter from "./routes/products"
 import influencerRouter from "./routes/influencer"
 
+app.use(cors())
 app.use(bodyParser.json({ type: 'application/*+json' }))
 
 app.get('/', (req: Request, res: Response) => {
