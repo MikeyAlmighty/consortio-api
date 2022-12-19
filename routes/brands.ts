@@ -34,8 +34,8 @@ brandRouter.delete("/:id", (req: Request, res: Response, next) => {
 brandRouter.post("/", async (req: Request, res: Response) => {
     const { name, origin, IPR } = req.body
     try {
-      await Brand.collection.insertOne({ name, origin, IPR })
-      res.status(201)
+      const brand = await Brand.collection.insertOne({ name, origin, IPR })
+      res.status(201).json(brand)
     } catch (error) {
       res.status(400).json({ error })
       console.error(error)
