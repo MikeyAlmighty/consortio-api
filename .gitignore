@@ -4,3 +4,6 @@
 tmp/
 node_modules/
 .env
+brands/dist/
+influencers/dist/
+products/dist/

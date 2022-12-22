@@ -1,0 +1,8 @@
+# GET Brands
+GET http://localhost:8000
+
+# GET Products
+GET http://localhost:8000/products
+
+# GET Influencers
+GET http://localhost:8000/influencers
