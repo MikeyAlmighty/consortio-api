@@ -10,10 +10,6 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies:": {
-    "ts-node": "^10.9.1",
-    "TypeScript": "^4.9.4"
-  },
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
@@ -21,7 +17,13 @@
     "@types/node": "^18.11.15",
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.20",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "eslint": "8.29.0",
+    "ts-node": "^10.9.1",
+    "eslint": "^8.27.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-promise": "^6.0.1"
   },
   "dependencies": {
     "body-parser": "^1.20.1",

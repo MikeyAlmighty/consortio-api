@@ -6,7 +6,7 @@ import proxy from 'express-http-proxy'
 
 config()
 const app: Express = express()
-const PORT = process.env.PORT;
+const PORT = process.env.PORT
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -17,4 +17,4 @@ app.use('/', proxy('http://localhost:8001')) // brands
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Gateway is running at https://localhost:${PORT}`);
-});
+})

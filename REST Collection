@@ -1,5 +1,8 @@
-# GET Brands
-GET http://localhost:8000
+# GET Brands All
+GET http://localhost:8001
+
+# GET Brands getById
+GET http://localhost:8001/63a05d813462e87430c00d9c
 
 # GET Products
 GET http://localhost:8000/products

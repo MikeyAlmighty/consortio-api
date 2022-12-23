@@ -1,1 +1,1 @@
-export { default as BrandModel } from './brand'
+export { default as BrandModel, IBrand } from './brand'
