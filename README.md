@@ -4,11 +4,11 @@
 
 ![Earth](docs/earth.jpg)
 
-[Relationships](./relations.excalidraw)
-
 ## Architecture
 
 ### Database
+See [Relationship](./relations.excalidraw) diagram
+
 MongoDB (Shared database)
 - Potentially look into database per-service
 
