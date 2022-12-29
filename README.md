@@ -6,7 +6,13 @@
 
 ## Architecture
 
+### Languages/Frameworks
+
+[TypeScript](https://www.typescriptlang.org/)
+[Express.js](https://expressjs.com/)
+
 ### Database
+
 See [Relationship](./relations.excalidraw) diagram
 
 MongoDB (Shared database)
@@ -15,17 +21,21 @@ MongoDB (Shared database)
 ### Services
 
 #### Brands
+
 - [Brands](./brands/package.json)
 
 #### Influencers
+
 - Coming soon
 
 #### Products
+
 - Coming soon
 
 ## Setup and Running
 
 ### Setup:
+
 For each service (in root directory) `npm i`
 Add `.env` file with following ENV vars:
 
@@ -35,6 +45,7 @@ MONGODB_URI=XXX
 ```
 
 ### Running:
+
 ```js
 cd gateway/ && npm run dev
 cd influencers/ && npm run dev
