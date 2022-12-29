@@ -1,14 +1,14 @@
 {
     "name": "products",
-    "description": "description",
+    "description": "Products Service",
     "version": "1.0.0",
     "author": "Michael Leibbrandt <mike.leibbrandt@gmail.com>",
     "license": "MIT",
     "main": "app/main.js",
     "scripts": {
-      "build": "npx tsc",
+      "build": "rm -rf dist/ && npx tsc",
       "start": "node dist/index.js",
-      "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+      "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/products/src/index.js\"",
       "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {

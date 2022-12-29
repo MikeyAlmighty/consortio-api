@@ -15,19 +15,17 @@ class BrandService {
     }
 
     async createBrand(newBrand: IBrand){
-        const brandResult = await this.repository.createBrand(newBrand)
-        return brandResult
+        const brand = await this.repository.createBrand(newBrand)
+        return brand
     }
 
     async getById(id: string) {
       const brand = await this.repository.findById(id)
-      console.info('[Service]: returning brand by Id: ', brand)
       return brand
     }
 
     async getBrands() {
       const brands = await this.repository.getBrands()
-      console.info('[Service]: returning brands: ', brands)
       return brands
     }
 
@@ -44,7 +42,6 @@ class BrandService {
                 break;
             case 'TEST_BRAND':
                 console.log('Brand Event HIT!')
-                // this.createBrand(brand)
                 break;
             default:
                 break;

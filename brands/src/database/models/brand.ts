@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose"
 
-
 export interface IBrand {
    name: string
    origin: string

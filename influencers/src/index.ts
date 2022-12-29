@@ -3,7 +3,7 @@ import { config } from 'dotenv'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-import databaseConnection from '../../utils/db-connection'
+import { databaseConnection } from './database'
 import { expressWrapper } from './express-wrapper'
 
 const StartServer = async() => {
@@ -13,9 +13,8 @@ const StartServer = async() => {
   app.use(cors())
 
   const PORT = process.env.PORT;
-  const MONGODB_URI = process.env.MONGODB_URI
 
-  await databaseConnection(MONGODB_URI);
+  await databaseConnection();
   await expressWrapper(app);
 
   app.listen(PORT, () => {

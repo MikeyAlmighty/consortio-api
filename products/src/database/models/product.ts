@@ -1,12 +1,13 @@
-import mongoose from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
-const Schema = mongoose.Schema
+export interface IProduct {
+  name: string
+}
 
-const productSchema = new Schema({
+const productSchema = new Schema<IProduct>({
     name: {
         type: String
     }
 }, { timestamps: true })
 
-// module.exports = mongoose.model('product', productSchema)
-export default mongoose.model('product', productSchema)
+export default mongoose.model<IProduct>('product', productSchema)

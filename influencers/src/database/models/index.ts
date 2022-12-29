@@ -1,1 +1,1 @@
-export { default  as InfluencerModel } from './influencer'
+export { default  as InfluencerModel, IInfluencer } from './influencer'

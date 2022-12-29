@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
-const databaseConnection = async () => {
-  const MONGODB_URI = process.env.MONGODB_URI
+const databaseConnection = async (MONGODB_URI: string | undefined) => {
   try {
       if (MONGODB_URI) {
         await mongoose.connect(MONGODB_URI);

@@ -1,15 +1,16 @@
-import mongoose from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
-const Schema = mongoose.Schema
+export interface IInfluencer {
+  name: string
+  posts: number
+  clicks: number
+}
 
 const influencerSchema = new Schema({
     name: {
       type: String
     },
     posts: {
-      type: Number
-    },
-    sales: {
       type: Number
     },
     clicks: {

@@ -24,8 +24,12 @@ Content-Type: application/json
   }
 }
 
-# GET Products
-# GET http://localhost:8000/products
+# GET Products All
+GET http://localhost:8002
 
-# GET Influencers
-# GET http://localhost:8000/influencers
+# POST Products Create
+POST http://localhost:8002
+Content-Type: application/json
+{
+ "name": "Hand Towel"
+}
