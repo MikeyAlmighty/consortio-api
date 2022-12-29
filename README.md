@@ -1,6 +1,7 @@
 # Consortio API
 
-> Partnership (**noun**) `consortium, societas, consociatio`
+> Partnership (**noun**) 
+> `consortium, societas, consociatio`
 
 [Relationships](./relations.excalidraw)
 
