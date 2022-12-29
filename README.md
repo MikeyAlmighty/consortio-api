@@ -18,19 +18,26 @@ See [Relationship](./relations.excalidraw) diagram
 MongoDB (Shared database)
 - Potentially look into database per-service
 
+
+### Service structure
+
+1. (root)
+   - src
+     - api
+     - database
+       - models
+       - repository
+     - services
+       - xxx-service.ts
+   - package.json
+   - package-lock.json
+   - .env
+
 ### Services
 
-#### Brands
-
 - [Brands](./brands/package.json)
-
-#### Influencers
-
-- Coming soon
-
-#### Products
-
-- Coming soon
+- Influencers (Coming soon)
+- Products (Coming soon)
 
 ## Setup and Running
 
