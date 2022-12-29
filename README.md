@@ -1,17 +1,25 @@
 # Consortio API
 
-> Partnership (**noun**) 
-> `consortium, societas, consociatio`
+> Partnership (**noun**) *consortium, societas, consociatio*
+
+![Earth](docs/earth.jpg)
 
 [Relationships](./relations.excalidraw)
 
+## Architecture
 
-## Services
+### Database
+MongoDB (Shared database)
+- Potentially look into database per-service
+
+### Services
 
 #### Brands
 - [Brands](./brands/package.json)
+
 #### Influencers
 - Coming soon
+
 #### Products
 - Coming soon
 
