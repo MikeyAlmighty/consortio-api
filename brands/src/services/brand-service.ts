@@ -1,6 +1,13 @@
 import { IBrand } from '../database/models';
 import BrandRepository from '../database/repository/brand-repository'
 
+type EventsPayload = {
+  event: string
+  data: {
+    brand: IBrand
+  }
+}
+
 class BrandService {
     repository: BrandRepository
     constructor(){
@@ -22,6 +29,26 @@ class BrandService {
       const brands = await this.repository.getBrands()
       console.info('[Service]: returning brands: ', brands)
       return brands
+    }
+
+
+    async subscribeEvents(payload: EventsPayload) {
+        console.log('Triggering.... Brand Events')
+        const { event, data } =  payload;
+
+        const { brand } = data;
+
+        switch(event){
+            case 'CREATE_BRAND':
+                this.createBrand(brand)
+                break;
+            case 'TEST_BRAND':
+                console.log('Brand Event HIT!')
+                // this.createBrand(brand)
+                break;
+            default:
+                break;
+        }
     }
 }
 

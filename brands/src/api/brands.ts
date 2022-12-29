@@ -1,4 +1,5 @@
 import { Express, Request, Response } from 'express';
+
 import { BrandModel  } from '../database/models/index'
 import BrandService from '../services/brand-service';
 
@@ -22,6 +23,7 @@ export default (app: Express) => {
           return res.status(404).json({ error });
         }
     });
+
     app.post("/", async (req: Request, res: Response) => {
         const { name, origin, IPR } = req.body
         try {

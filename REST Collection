@@ -4,8 +4,28 @@ GET http://localhost:8001
 # GET Brands getById
 GET http://localhost:8001/63a05d813462e87430c00d9c
 
+# POST Brands Create
+POST http://localhost:8001
+Content-Type: application/json
+{
+ "name": "NewBrand",
+ "origin": "TestOrigin",
+ "IPR": "Patent"
+}
+
+# POST Brands Test Events
+POST http://localhost:8000/events
+Content-Type: application/json
+
+{
+  "payload": {
+    "event": "TESTING",
+    "data": {}
+  }
+}
+
 # GET Products
-GET http://localhost:8000/products
+# GET http://localhost:8000/products
 
 # GET Influencers
-GET http://localhost:8000/influencers
+# GET http://localhost:8000/influencers

@@ -1,7 +1,7 @@
 {
-  "name": "collision-api",
+  "name": "consortio-api",
   "version": "1.0.0",
-  "description": "CRUD API for Collision",
+  "description": "CRUD API for Consortio",
   "author": "Mikey",
   "main": "index.js",
   "scripts": {

@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
 
 export interface IBrand {
@@ -30,16 +30,3 @@ const brandSchema = new Schema<IBrand>({
 }, { timestamps: true })
 
 export default mongoose.model<IBrand>('brand', brandSchema)
-
-// export interface IUser extends mongoose.Document {
-//   name: string;
-//   somethingElse?: number;
-// };
-
-// export const UserSchema = new mongoose.Schema({
-//   name: {type:String, required: true},
-//   somethingElse: Number,
-// });
-
-// const User = mongoose.model<IUser>('User', UserSchema);
-// export default User;
