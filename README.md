@@ -13,7 +13,7 @@
 
 ### Database
 
-See [Relationship](./relations.excalidraw) diagram
+Open [Relationship](./relations.excalidraw) diagram on [Excalidraw](https://excalidraw.com/)
 
 MongoDB (Shared database)
 - Potentially look into database per-service
