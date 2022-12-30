@@ -4,6 +4,8 @@
 
 ![Earth](docs/earth.jpg)
 
+## :construction: Work in Progress
+
 ## Architecture
 
 ### Languages/Frameworks
