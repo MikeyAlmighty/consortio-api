@@ -6,7 +6,8 @@ export interface IProduct {
 
 const productSchema = new Schema<IProduct>({
     name: {
-        type: String
+        type: String,
+        required: true
     }
 }, { timestamps: true })
 

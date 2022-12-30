@@ -1,20 +1,53 @@
 import mongoose, { Schema } from "mongoose"
 
 export interface IInfluencer {
-  name: string
+  firstName: string
+  lastName: string
+  handle: string
   posts: number
   clicks: number
+  socialDetails: {
+    email: string
+    instagram?: string
+    tiktok?: string
+    youtube?: string
+  }
 }
 
 const influencerSchema = new Schema({
-    name: {
-      type: String
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: {
+      type: String,
+      required: true
+    },
+    handle: {
+      type: String,
+      required: true
     },
     posts: {
-      type: Number
+      type: Number,
+      required: true
     },
     clicks: {
       type: Number
+    },
+    socialDetails: {
+      email: {
+        type: String,
+        required: true
+      },
+      instagram: {
+        type: String
+      },
+      tiktok: {
+        type: String
+      },
+      youtube: {
+        type: String
+      },
     }
 }, { timestamps: true })
 

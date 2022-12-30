@@ -34,4 +34,14 @@ export default (app: Express) => {
           console.error(error)
         }
     })
+
+  app.delete("/:id", async (req: Request, res: Response) => {
+    const { id } = req.body
+    try {
+      await BrandModel.collection.deleteOne({ id })
+      res.status(204).json({})
+    } catch (error) {
+     console.error(error)
+    }
+  })
 }

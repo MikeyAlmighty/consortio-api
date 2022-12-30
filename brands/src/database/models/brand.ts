@@ -10,7 +10,8 @@ export interface IBrand {
 
 const brandSchema = new Schema<IBrand>({
     name: {
-        type: String
+      type: String,
+      required: true
     },
     origin: {
         type: String

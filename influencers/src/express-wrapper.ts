@@ -1,14 +1,14 @@
 import express, { Express } from 'express';
 import cors from 'cors'
 
-import { brandEvents, brands } from './api';
+import { influencers, influencerEvents } from './api';
 
 export const expressWrapper = async(app: Express) => {
   app.use(express.json());
   app.use(cors());
 
-  brands(app)
+  influencers(app)
 
   // Listen to Events
-  brandEvents(app)
+  influencerEvents(app)
 };

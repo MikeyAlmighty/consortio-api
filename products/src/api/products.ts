@@ -26,12 +26,10 @@ export default (app: Express) => {
     });
 
     app.post("/", async (req: Request, res: Response) => {
-        // const { name, origin, IPR } = req.body
+        const { name } = req.body
         try {
           const product = await ProductModel.collection.insertOne({
-              // name,
-              // origin,
-              // IPR
+             name
           })
           res.status(201).json(product)
         } catch (error) {
@@ -39,4 +37,14 @@ export default (app: Express) => {
           console.error(error)
         }
     })
+
+  app.delete("/:id", async (req: Request, res: Response) => {
+    const { id } = req.body
+    try {
+      await ProductModel.collection.deleteOne({ id })
+      res.status(204).json({})
+    } catch (error) {
+     console.error(error)
+    }
+  })
 }

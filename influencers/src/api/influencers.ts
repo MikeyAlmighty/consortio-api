@@ -26,17 +26,37 @@ export default (app: Express) => {
     });
 
     app.post("/", async (req: Request, res: Response) => {
-        const { name, origin, IPR } = req.body
+        const {
+          firstName,
+          lastName,
+          handle,
+          posts,
+          clicks,
+          socialDetails
+        } = req.body
         try {
           const influencer = await InfluencerModel.collection.insertOne({
-              // name,
-              // origin,
-              // IPR
+            firstName,
+            lastName,
+            handle,
+            posts,
+            clicks,
+            socialDetails
           })
           res.status(201).json(influencer)
         } catch (error) {
           res.status(400).json({ error })
           console.error(error)
         }
+    })
+
+    app.delete("/:id", async (req: Request, res: Response) => {
+      const { id } = req.body
+      try {
+        await InfluencerModel.collection.deleteOne({ id })
+        res.status(204).json({})
+      } catch (error) {
+      console.error(error)
+      }
     })
 }

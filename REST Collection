@@ -1,10 +1,12 @@
-# GET Brands All
+## *BRANDS_START*
+
+# getAll
 GET http://localhost:8001
 
-# GET Brands getById
+# getById
 GET http://localhost:8001/63a05d813462e87430c00d9c
 
-# POST Brands Create
+# create
 POST http://localhost:8001
 Content-Type: application/json
 {
@@ -13,10 +15,12 @@ Content-Type: application/json
  "IPR": "Patent"
 }
 
-# POST Brands Test Events
+# delete
+DELETE http://localhost:8001/id
+
+# testEvents
 POST http://localhost:8000/events
 Content-Type: application/json
-
 {
   "payload": {
     "event": "TESTING",
@@ -24,12 +28,45 @@ Content-Type: application/json
   }
 }
 
-# GET Products All
+## *BRANDS_END*
+## *PRODUCTS_START*
+
+# getAll
 GET http://localhost:8002
 
-# POST Products Create
+# create
 POST http://localhost:8002
 Content-Type: application/json
 {
  "name": "Hand Towel"
 }
+
+# delete
+DELETE http://localhost:8002/id
+
+## *PRODUCTS_END*
+## *INFLUENCERS_START*
+
+# getAll
+GET http://localhost:8003
+
+# create
+POST http://localhost:8003
+Content-Type: application/json
+{
+  "firstName": "Joey",
+  "lastName": "Shoes",
+  "handle": "Joey2Shoes",
+  "posts": 20,
+  "clicks": 400,
+  "socialDetails": {
+      "email": "joey2shoes@gmail.com",
+      "instagram": "https://www.instagram.com/joey2shoes",
+      "youtube": "https://www.youtube.com/@joey_2_shoes"
+    }
+}
+
+# delete
+DELETE http://localhost:8003/id
+
+## *INFLUENCERS_END*
