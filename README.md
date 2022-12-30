@@ -37,8 +37,8 @@ MongoDB (Shared database)
 ### Services
 
 - [Brands](./brands/package.json)
-- Influencers (Coming soon)
-- Products (Coming soon)
+- [Influencers](./influencers/package.json)
+- [Products](./products/package.json)
 
 ## Setup and Running
 
