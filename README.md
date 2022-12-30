@@ -20,7 +20,6 @@ Open [Relationship](./relations.excalidraw) diagram on [Excalidraw](https://exca
 MongoDB (Shared database)
 - Potentially look into database per-service
 
-
 ### Service structure
 
 1. (root)
