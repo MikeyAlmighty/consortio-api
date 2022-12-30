@@ -1,10 +1,10 @@
 import { BrandModel, IBrand } from "../models";
 
 class BrandRepository {
-    async createBrand({ name, origin, active, inceptionDate, IPR }: IBrand){
+    async createBrand({ name, origin, active, incorporationDate, IPR }: IBrand){
         try {
           const brand = new BrandModel({
-            name, origin, active, inceptionDate, IPR
+            name, origin, active, incorporationDate, IPR
           })
           const brandResult = await brand.save();
           return brandResult;

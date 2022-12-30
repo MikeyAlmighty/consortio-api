@@ -4,7 +4,7 @@ export interface IBrand {
    name: string
    origin: string
    active: boolean
-   inceptionDate: Date
+   incorporationDate: Date
    IPR: 'Patent' | 'Trade Secret' | 'Trademark' | 'Copyright' | 'Invention'
 }
 
@@ -19,8 +19,9 @@ const brandSchema = new Schema<IBrand>({
     active: {
         type: Boolean
     },
-    inceptionDate: {
-        type: Date
+    incorporationDate: {
+        type: Date,
+        required: true
     },
     IPR: {
       type: String,

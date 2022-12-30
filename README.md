@@ -8,8 +8,8 @@
 
 ### Languages/Frameworks
 
-[TypeScript](https://www.typescriptlang.org/)
-[Express.js](https://expressjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Express.js](https://expressjs.com/)
 
 ### Database
 

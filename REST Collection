@@ -1,22 +1,23 @@
 ## *BRANDS_START*
 
 # getAll
-GET http://localhost:8001
+GET http://localhost:8000
 
 # getById
-GET http://localhost:8001/63a05d813462e87430c00d9c
+GET http://localhost:8000/63a04b6b482a9e9df11b5dc0
 
 # create
-POST http://localhost:8001
+POST http://localhost:8000
 Content-Type: application/json
 {
- "name": "NewBrand",
- "origin": "TestOrigin",
- "IPR": "Patent"
-}
+ "name": "Adidas4",
+ "origin": "Germany",
+ "IPR": "Patent",
+ "incorporationDate": "2022-12-31"
+ }
 
 # delete
-DELETE http://localhost:8001/id
+DELETE http://localhost:8000/id
 
 # testEvents
 POST http://localhost:8000/events
@@ -32,26 +33,26 @@ Content-Type: application/json
 ## *PRODUCTS_START*
 
 # getAll
-GET http://localhost:8002
+GET http://localhost:8000/products
 
 # create
-POST http://localhost:8002
+POST http://localhost:8000/products
 Content-Type: application/json
 {
  "name": "Hand Towel"
 }
 
 # delete
-DELETE http://localhost:8002/id
+DELETE http://localhost:8000/products/63aeefa521064b95ebc198bb
 
 ## *PRODUCTS_END*
 ## *INFLUENCERS_START*
 
 # getAll
-GET http://localhost:8003
+GET http://localhost:8000/influencers
 
 # create
-POST http://localhost:8003
+POST http://localhost:8000/influencers
 Content-Type: application/json
 {
   "firstName": "Joey",
@@ -67,6 +68,6 @@ Content-Type: application/json
 }
 
 # delete
-DELETE http://localhost:8003/id
+DELETE http://localhost:8000/influencers/id
 
 ## *INFLUENCERS_END*
