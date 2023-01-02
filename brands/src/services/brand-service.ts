@@ -14,9 +14,13 @@ class BrandService {
         this.repository = new BrandRepository();
     }
 
-    async createBrand(newBrand: IBrand){
+    async createBrand(newBrand: IBrand) {
         const brand = await this.repository.createBrand(newBrand)
         return brand
+    }
+
+    async deleteBrand(id: string){
+      await this.repository.deleteBrand(id)
     }
 
     async getById(id: string) {
@@ -39,6 +43,9 @@ class BrandService {
         switch(event){
             case 'CREATE_BRAND':
                 this.createBrand(brand)
+                break;
+            case 'DELETE_BRAND':
+                this.deleteBrand(id)
                 break;
             case 'TEST_BRAND':
                 console.log('Brand Event HIT!')

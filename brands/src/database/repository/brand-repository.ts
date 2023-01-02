@@ -17,7 +17,6 @@ class BrandRepository {
      async getBrands(){
          try {
            const brands = await BrandModel.find();
-           console.log('[Repository]: returning brands: ', brands)
            return brands
          } catch (error) {
            console.error(error)
@@ -25,7 +24,15 @@ class BrandRepository {
          }
     }
 
-    async findById(id: string){
+    async deleteBrand(id: string) {
+       try {
+        await BrandModel.findByIdAndDelete({ _id: id })
+       } catch (error) {
+         console.error(error)
+       }
+    }
+
+    async findById(id: string) {
          try {
            const brand =  await BrandModel.findById(id);
            console.log('[Repository]: returning brand with Id: ', brand)

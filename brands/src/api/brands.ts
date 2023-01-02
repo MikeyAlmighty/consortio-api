@@ -35,13 +35,14 @@ export default (app: Express) => {
         }
     })
 
-  app.delete("/:id", async (req: Request, res: Response) => {
-    const { id } = req.body
-    try {
-      await BrandModel.collection.deleteOne({ id })
-      res.status(204).json({})
-    } catch (error) {
-     console.error(error)
-    }
-  })
+    app.delete("/:id", async (req: Request, res: Response) => {
+      const { id } = req.params
+      try {
+        await service.deleteBrand(id)
+        res.status(204).json({})
+      } catch (error) {
+        res.status(400).json({ error })
+        console.error(error)
+      }
+    })
 }
