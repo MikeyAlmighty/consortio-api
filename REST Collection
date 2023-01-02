@@ -4,7 +4,17 @@
 GET http://localhost:8000
 
 # getById
-GET http://localhost:8000/63a04b6b482a9e9df11b5dc0
+GET http://localhost:8000/id
+
+# patch
+PATCH http://localhost:8000/id
+Content-Type: application/json
+{
+ "name": "Adidas123",
+ "origin": "Russia",
+ "IPR": "PATENT",
+ "incorporationDate": "2022-12-31"
+}
 
 # create
 POST http://localhost:8000
@@ -12,12 +22,12 @@ Content-Type: application/json
 {
  "name": "Adidas4",
  "origin": "Germany",
- "IPR": "Patent",
+ "IPR": "PATENT",
  "incorporationDate": "2022-12-31"
- }
+}
 
 # delete
-DELETE http://localhost:8000/id
+DELETE http://localhost:8000/63b2c63cfd345680247e02fb
 
 # testEvents
 POST http://localhost:8000/events
@@ -64,7 +74,7 @@ Content-Type: application/json
       "email": "joey2shoes@gmail.com",
       "instagram": "https://www.instagram.com/joey2shoes",
       "youtube": "https://www.youtube.com/@joey_2_shoes"
-    }
+  }
 }
 
 # delete

@@ -1,11 +1,12 @@
 import mongoose, { Schema } from "mongoose"
 
 export interface IBrand {
+   id?: string
    name: string
    origin: string
-   active: boolean
+   active?: boolean
    incorporationDate: Date
-   IPR: 'Patent' | 'Trade Secret' | 'Trademark' | 'Copyright' | 'Invention'
+   IPR: 'PATENT' | 'TRADE_SECRET' | 'TRADE_MARK' | 'COPYRIGHT' | 'INVENTION'
 }
 
 const brandSchema = new Schema<IBrand>({
@@ -25,8 +26,8 @@ const brandSchema = new Schema<IBrand>({
     },
     IPR: {
       type: String,
-      enum : ['Patent','Trade secret', 'Trademark', 'Copyright', 'Invention'],
-      default: 'Patent'
+      enum : ['PATENT','TRADE_SECRET', 'TRADE_MARK', 'COPYRIGHT', 'INVENTION'],
+      default: 'PATENT'
     }
 }, { timestamps: true })
 

@@ -14,6 +14,21 @@ class BrandRepository {
         }
     }
 
+    async patchBrand({ id, name, origin, active, incorporationDate, IPR }: IBrand){
+        try {
+          await BrandModel.findByIdAndUpdate(id, {
+              name,
+              origin,
+              active,
+              incorporationDate,
+              IPR
+          })
+        } catch (error) {
+            console.error(error)
+            // throw new Error('API Error', STATUS_CODES)
+        }
+    }
+
      async getBrands(){
          try {
            const brands = await BrandModel.find();

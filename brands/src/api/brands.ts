@@ -1,6 +1,6 @@
 import { Express, Request, Response } from 'express';
 
-import { BrandModel  } from '../database/models/index'
+import { BrandModel } from '../database/models/index'
 import BrandService from '../services/brand-service';
 
 export default (app: Express) => {
@@ -25,10 +25,28 @@ export default (app: Express) => {
     });
 
     app.post("/", async (req: Request, res: Response) => {
-        const { name, origin, IPR } = req.body
+        const { name, origin, IPR, incorporationDate } = req.body
         try {
-          const brand = await BrandModel.collection.insertOne({ name, origin, IPR })
+          const brand = await service.createBrand({
+            name,
+            origin,
+            IPR,
+            incorporationDate
+          })
           res.status(201).json(brand)
+        } catch (error) {
+          res.status(400).json({ error })
+          console.error(error)
+        }
+    })
+
+    app.patch("/:id", async (req: Request, res: Response) => {
+        const { id } = req.params
+      console.log('req.params: ', req.params)
+        const { name, origin, IPR, incorporationDate } = req.body
+        try {
+          const brand = await service.patchBrand({ id, name, origin, IPR, incorporationDate })
+          res.status(200).json(brand)
         } catch (error) {
           res.status(400).json({ error })
           console.error(error)

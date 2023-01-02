@@ -19,12 +19,17 @@ class BrandService {
         return brand
     }
 
-    async deleteBrand(id: string){
-      await this.repository.deleteBrand(id)
+    async patchBrand(updatedBrand: IBrand) {
+        const brand = await this.repository.patchBrand(updatedBrand)
+        return brand
     }
 
-    async getById(id: string) {
-      const brand = await this.repository.findById(id)
+    async deleteBrand(id: IBrand['id']){
+      id ? await this.repository.deleteBrand(id) :  null
+    }
+
+    async getById(id: IBrand['id']) {
+      const brand = id && await this.repository.findById(id)
       return brand
     }
 
@@ -32,7 +37,6 @@ class BrandService {
       const brands = await this.repository.getBrands()
       return brands
     }
-
 
     async subscribeEvents(payload: EventsPayload) {
         console.log('Triggering.... Brand Events')
@@ -44,8 +48,11 @@ class BrandService {
             case 'CREATE_BRAND':
                 this.createBrand(brand)
                 break;
+            case 'PATCH_BRAND':
+                this.patchBrand(brand)
+                break;
             case 'DELETE_BRAND':
-                this.deleteBrand(id)
+                brand.id && this.deleteBrand(brand.id)
                 break;
             case 'TEST_BRAND':
                 console.log('Brand Event HIT!')
