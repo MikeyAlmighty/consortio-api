@@ -1,11 +1,13 @@
 import { ProductModel, IProduct } from "../models";
 
 class ProductRepository {
-    async createProduct({ name }: IProduct){
+    async createProduct({ name, description }: IProduct){
         try {
           const product = new ProductModel({
-            name
+            name,
+            description
           })
+
           const productResult = await product.save();
           return productResult;
         } catch (error) {

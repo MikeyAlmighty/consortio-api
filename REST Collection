@@ -49,11 +49,12 @@ GET http://localhost:8000/products
 POST http://localhost:8000/products
 Content-Type: application/json
 {
- "name": "Hand Towel"
+ "name": "Hand Towel",
+ "description": "Never leave home without it!"
 }
 
 # delete
-DELETE http://localhost:8000/products/63aeefa521064b95ebc198bb
+DELETE http://localhost:8000/products/63b2f0be3ffbbc14b6053834
 
 ## *PRODUCTS_END*
 ## *INFLUENCERS_START*

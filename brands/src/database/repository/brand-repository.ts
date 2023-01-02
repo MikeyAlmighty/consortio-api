@@ -6,6 +6,7 @@ class BrandRepository {
           const brand = new BrandModel({
             name, origin, active, incorporationDate, IPR
           })
+
           const brandResult = await brand.save();
           return brandResult;
         } catch (error) {
