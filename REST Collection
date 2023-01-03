@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 # delete
-DELETE http://localhost:8000/63b2c63cfd345680247e02fb
+DELETE http://localhost:8000/id
 
 # testEvents
 POST http://localhost:8000/events
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 # delete
-DELETE http://localhost:8000/products/63b406baae1ad003e268af8f
+DELETE http://localhost:8000/products/id
 
 ## *PRODUCTS_END*
 ## *INFLUENCERS_START*
@@ -76,13 +76,29 @@ Content-Type: application/json
 {
   "firstName": "Joey",
   "lastName": "Shoes",
-  "handle": "Joey2Shoes",
   "posts": 20,
   "clicks": 400,
   "socialDetails": {
-      "email": "joey2shoes@gmail.com",
-      "instagram": "https://www.instagram.com/joey2shoes",
-      "youtube": "https://www.youtube.com/@joey_2_shoes"
+    "handle": "Joey2Shoes",
+    "email": "joey2shoes@gmail.com",
+    "instagram": "https://www.instagram.com/joey2shoes",
+    "youtube": "https://www.youtube.com/@joey_2_shoes"
+  }
+}
+
+# patch
+PATCH http://localhost:8000/influencers/id
+Content-Type: application/json
+{
+  "firstName": "Joey",
+  "lastName": "Shoes",
+  "posts": 20,
+  "clicks": 400,
+  "socialDetails": {
+    "handle": "Joey2Shoes",
+    "email": "joey2shoes@gmail.com",
+    "instagram": "https://www.instagram.com/joey2shoes",
+    "youtube": "https://www.youtube.com/@joey_2_shoes"
   }
 }
 
