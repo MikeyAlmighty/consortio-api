@@ -10,5 +10,5 @@ export const expressWrapper = async(app: Express) => {
   partnerships(app)
 
   // Listen to Events
-  brandEvents(app)
+  partnershipEvents(app)
 };
