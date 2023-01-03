@@ -1,8 +1,8 @@
 import { Express, Request, Response, NextFunction } from 'express'
-import BrandService from "../services/brand-service";
+import PartnershipService from "../services/partnership-service";
 
- const brandEvents = (app: Express) => {
-    const service = new BrandService();
+ const partnershipEvents = (app: Express) => {
+    const service = new PartnershipService();
 
     app.use('/events',async (req: Request, res: Response, next: NextFunction) => {
         const { payload } = req.body;
@@ -10,11 +10,11 @@ import BrandService from "../services/brand-service";
         // Handle subscribe events
         service.subscribeEvents(payload);
 
-        console.log("============= Brands ===============");
+        console.log("============= Partnerships ===============");
         console.log(payload);
 
         res.json(payload);
     });
 }
 
-export default brandEvents
+export default partnershipEvents

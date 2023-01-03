@@ -1,23 +1,23 @@
 import { Express, Request, Response } from 'express';
 
-import BrandService from '../services/brand-service';
+import PartnershipService from '../services/partnership-service';
 
 export default (app: Express) => {
-    const service = new BrandService()
+    const service = new PartnershipService()
     app.get("/", async (req: Request, res: Response) => {
         try {
-          const brands = await service.getBrands();
-          return res.status(200).json(brands);
+          const partnerships = await service.getPartnerships();
+          return res.status(200).json(partnerships);
         } catch (error) {
           return res.status(404).json({ error });
         }
     });
 
     app.get("/:id", async (req: Request, res: Response) => {
-        const brandId = req.params.id;
+        const partnershipId = req.params.id;
         try {
-          const brand = await service.getById(brandId);
-          return res.status(200).json(brand);
+          const partnership = await service.getById(partnershipId);
+          return res.status(200).json(partnership);
         } catch (error) {
           return res.status(404).json({ error });
         }
@@ -26,25 +26,13 @@ export default (app: Express) => {
     app.post("/", async (req: Request, res: Response) => {
         const { name, origin, IPR, incorporationDate } = req.body
         try {
-          const brand = await service.createBrand({
+          const partnership = await service.createPartnership({
             name,
             origin,
             IPR,
             incorporationDate
           })
-          res.status(201).json(brand)
-        } catch (error) {
-          res.status(400).json({ error })
-          console.error(error)
-        }
-    })
-
-    app.patch("/:id", async (req: Request, res: Response) => {
-        const { id } = req.params
-        const { name, origin, IPR, incorporationDate } = req.body
-        try {
-          const brand = await service.patchBrand({ id, name, origin, IPR, incorporationDate })
-          res.status(200).json(brand)
+          res.status(201).json(partnership)
         } catch (error) {
           res.status(400).json({ error })
           console.error(error)
@@ -54,7 +42,7 @@ export default (app: Express) => {
     app.delete("/:id", async (req: Request, res: Response) => {
       const { id } = req.params
       try {
-        await service.deleteBrand(id)
+        await service.deletePartnership(id)
         res.status(204).json({})
       } catch (error) {
         res.status(400).json({ error })
