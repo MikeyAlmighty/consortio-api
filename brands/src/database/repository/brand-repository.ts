@@ -42,7 +42,7 @@ class BrandRepository {
 
     async deleteBrand(id: string) {
        try {
-        await BrandModel.findByIdAndDelete({ _id: id })
+         await BrandModel.findByIdAndDelete({ _id: id })
        } catch (error) {
          console.error(error)
        }

@@ -26,11 +26,13 @@ export default (app: Express) => {
     });
 
     app.post("/", async (req: Request, res: Response) => {
-        const { name } = req.body
+        const { name, description } = req.body
         try {
-          const product = await ProductModel.collection.insertOne({
-             name
+          const product = await service.createProduct({
+            name,
+            description
           })
+
           res.status(201).json(product)
         } catch (error) {
           res.status(400).json({ error })
@@ -38,13 +40,25 @@ export default (app: Express) => {
         }
     })
 
-  app.delete("/:id", async (req: Request, res: Response) => {
-    const { id } = req.body
-    try {
-      await ProductModel.collection.deleteOne({ id })
-      res.status(204).json({})
-    } catch (error) {
-     console.error(error)
-    }
-  })
+    app.patch("/:id", async (req: Request, res: Response) => {
+        const { id } = req.params
+        const { name, description } = req.body
+        try {
+          const product = await service.patchProduct({ id, name, description })
+          res.status(200).json(product )
+        } catch (error) {
+          res.status(400).json({ error })
+          console.error(error)
+        }
+    })
+
+    app.delete("/:id", async (req: Request, res: Response) => {
+      const { id } = req.params
+      try {
+        await service.deleteProduct(id)
+        res.status(204).json({})
+      } catch (error) {
+      console.error(error)
+      }
+    })
 }

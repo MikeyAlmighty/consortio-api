@@ -45,6 +45,14 @@ Content-Type: application/json
 # getAll
 GET http://localhost:8000/products
 
+# patch
+PATCH http://localhost:8000/products/id
+Content-Type: application/json
+{
+ "name": "Hand Towel",
+ "description": "Never leave home without it?"
+}
+
 # create
 POST http://localhost:8000/products
 Content-Type: application/json
@@ -54,7 +62,7 @@ Content-Type: application/json
 }
 
 # delete
-DELETE http://localhost:8000/products/63b2f0be3ffbbc14b6053834
+DELETE http://localhost:8000/products/63b406baae1ad003e268af8f
 
 ## *PRODUCTS_END*
 ## *INFLUENCERS_START*

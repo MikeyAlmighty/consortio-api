@@ -19,6 +19,11 @@ class ProductService {
         return product
     }
 
+    async patchProduct(updatedProduct: IProduct) {
+        const product = await this.repository.patchProduct(updatedProduct)
+        return product
+    }
+
     async getById(id: string) {
       const product = await this.repository.findById(id)
       return product
@@ -30,6 +35,9 @@ class ProductService {
       return products
     }
 
+    async deleteProduct(id: IProduct['id']){
+      id ? await this.repository.deleteProduct(id) :  null
+    }
 
     async subscribeEvents(payload: EventsPayload) {
         console.log('Triggering.... Product Events')
@@ -40,6 +48,12 @@ class ProductService {
         switch(event){
             case 'CREATE_PRODUCT':
                 this.createProduct(product)
+                break;
+            case 'PATCH_BRAND':
+                this.patchProduct(product)
+                break;
+            case 'DELETE_BRAND':
+                product.id && this.deleteProduct(product.id)
                 break;
             case 'TEST_PRODUCT':
                 console.log('Product Event HIT!')

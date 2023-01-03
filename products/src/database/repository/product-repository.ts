@@ -16,10 +16,21 @@ class ProductRepository {
         }
     }
 
+    async patchProduct({ id, name, description }: IProduct){
+        try {
+          await ProductModel.findByIdAndUpdate(id, {
+              name,
+              description
+          })
+        } catch (error) {
+            console.error(error)
+            // throw new Error('API Error', STATUS_CODES)
+        }
+    }
+
      async getProducts(){
          try {
            const products = await ProductModel.find();
-           console.log('[Repository]: returning products: ', products)
            return products
          } catch (error) {
            console.error(error)
@@ -30,7 +41,6 @@ class ProductRepository {
     async findById(id: string){
          try {
            const product =  await ProductModel.findById(id);
-           console.log('[Repository]: returning product with Id: ', product)
            return product
          } catch (error) {
            console.error(error)
@@ -38,6 +48,13 @@ class ProductRepository {
          }
     }
 
+    async deleteProduct(id: string) {
+       try {
+         await ProductModel.findByIdAndDelete({ _id: id })
+       } catch (error) {
+         console.error(error)
+       }
+    }
     // async findBySOMETHING(x: string){
     //      try {
     //         const products = await ProductModel.find({ SOMETHING: x });
