@@ -50,6 +50,18 @@ export default (app: Express) => {
         }
     })
 
+    app.patch("/:id", async (req: Request, res: Response) => {
+        const { id } = req.params
+        const { firstName, lastName, socialDetails } = req.body
+        try {
+          const influencer = await service.patchInfluencer({ id, firstName, lastName, socialDetails })
+          res.status(200).json(influencer)
+        } catch (error) {
+          res.status(400).json({ error })
+          console.error(error)
+        }
+    })
+
     app.delete("/:id", async (req: Request, res: Response) => {
       const { id } = req.body
       try {

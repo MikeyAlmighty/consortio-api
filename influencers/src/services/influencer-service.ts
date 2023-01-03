@@ -19,6 +19,15 @@ class InfluencerService {
         return influencer
     }
 
+    async patchInfluencer(updatedInfluencer: IInfluencer) {
+        const influencer = await this.repository.patchInfluencer(updatedInfluencer)
+        return influencer
+    }
+
+    async deleteInfluencer(id: IInfluencer['id']){
+      id ? await this.repository.deleteInfluencer(id) :  null
+    }
+
     async getById(id: string) {
       const influencer = await this.repository.findById(id)
       return influencer
@@ -26,7 +35,6 @@ class InfluencerService {
 
     async getInfluencers() {
       const influencers = await this.repository.getInfluencers()
-      console.info('[Service]: returning influencers: ', influencers)
       return influencers
     }
 

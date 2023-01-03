@@ -55,15 +55,6 @@ class ProductRepository {
          console.error(error)
        }
     }
-    // async findBySOMETHING(x: string){
-    //      try {
-    //         const products = await ProductModel.find({ SOMETHING: x });
-    //         return products;
-    //      } catch (error) {
-    //        console.error(error)
-    //        // throw new Error('API Error', STATUS_CODES)
-    //      }
-    // }
   }
 
 export default ProductRepository;

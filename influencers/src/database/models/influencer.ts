@@ -1,12 +1,13 @@
 import mongoose, { Schema } from "mongoose"
 
 export interface IInfluencer {
+  id?: string
   firstName: string
   lastName: string
-  handle: string
-  posts: number
-  clicks: number
+  posts?: number
+  clicks?: number
   socialDetails: {
+    handle: string
     email: string
     instagram?: string
     tiktok?: string
@@ -23,10 +24,6 @@ const influencerSchema = new Schema({
       type: String,
       required: true
     },
-    handle: {
-      type: String,
-      required: true
-    },
     posts: {
       type: Number,
       required: true
@@ -35,6 +32,10 @@ const influencerSchema = new Schema({
       type: Number
     },
     socialDetails: {
+      handle: {
+        type: String,
+        required: true
+      },
       email: {
         type: String,
         required: true

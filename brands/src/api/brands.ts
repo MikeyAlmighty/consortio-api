@@ -42,7 +42,6 @@ export default (app: Express) => {
 
     app.patch("/:id", async (req: Request, res: Response) => {
         const { id } = req.params
-      console.log('req.params: ', req.params)
         const { name, origin, IPR, incorporationDate } = req.body
         try {
           const brand = await service.patchBrand({ id, name, origin, IPR, incorporationDate })

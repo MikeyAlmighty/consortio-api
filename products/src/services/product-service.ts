@@ -31,7 +31,6 @@ class ProductService {
 
     async getProducts() {
       const products = await this.repository.getProducts()
-      console.info('[Service]: returning products: ', products)
       return products
     }
 

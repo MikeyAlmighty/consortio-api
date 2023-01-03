@@ -1,6 +1,5 @@
 import { Express, Request, Response } from 'express';
 
-import { ProductModel  } from '../database/models/index'
 import ProductService from '../services/product-service';
 
 export default (app: Express) => {

@@ -11,9 +11,21 @@ class InfluencerRepository {
               posts,
               socialDetails
           })
-          console.info('submitting: ', influencer)
           const influencerResult = await influencer.save();
-          return influencerResult;
+          return influencerResult
+        } catch (error) {
+            console.error(error)
+            // throw new Error('API Error', STATUS_CODES)
+        }
+    }
+
+    async patchInfluencer({ id, firstName, lastName, socialDetails, clicks, posts }: IInfluencer){
+        try {
+          await InfluencerModel.findByIdAndUpdate(id, {
+              firstName,
+              lastName,
+              socialDetails
+          })
         } catch (error) {
             console.error(error)
             // throw new Error('API Error', STATUS_CODES)
@@ -23,7 +35,6 @@ class InfluencerRepository {
      async getInfluencers(){
          try {
            const influencers = await InfluencerModel.find();
-           console.log('[Repository]: returning influencers: ', influencers)
            return influencers
          } catch (error) {
            console.error(error)
@@ -34,13 +45,21 @@ class InfluencerRepository {
     async findById(id: string){
          try {
            const influencer =  await InfluencerModel.findById(id);
-           console.log('[Repository]: returning influencer with Id: ', influencer)
            return influencer
          } catch (error) {
            console.error(error)
            // throw new Error('API Error', STATUS_CODES)
          }
     }
+
+    async deleteInfluencer(id: string) {
+       try {
+         await InfluencerModel.findByIdAndDelete({ _id: id })
+       } catch (error) {
+         console.error(error)
+       }
+    }
+
 }
 
 export default InfluencerRepository;
