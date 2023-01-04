@@ -24,12 +24,13 @@ class BrandService {
         return brand
     }
 
-    async deleteBrand(id: IBrand['id']){
-      id ? await this.repository.deleteBrand(id) :  null
+    async deleteBrand(id: string){
+      await this.repository.deleteBrand(id)
     }
 
-    async getById(id: IBrand['id']) {
-      const brand = id && await this.repository.findById(id)
+    async getById(id: string) {
+        console.log(`we're in`)
+      const brand = await this.repository.findById(id)
       return brand
     }
 
@@ -50,6 +51,9 @@ class BrandService {
                 break;
             case 'PATCH_BRAND':
                 this.patchBrand(brand)
+                break;
+            case 'GET_BRAND':
+                brand.id && this.getById(brand.id)
                 break;
             case 'DELETE_BRAND':
                 brand.id && this.deleteBrand(brand.id)

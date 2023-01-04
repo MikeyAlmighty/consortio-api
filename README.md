@@ -39,6 +39,7 @@ MongoDB (Shared database)
 - [Brands](./brands/package.json)
 - [Influencers](./influencers/package.json)
 - [Products](./products/package.json)
+- [Partnerships](./partnerships/package.json)
 
 ## Setup and Running
 
@@ -60,3 +61,7 @@ cd influencers/ && npm run dev
 cd brands/ && npm run dev
 cd products/ && npm run dev
 ```
+
+### REST Collection
+
+See [REST Collection](./REST Collection) (Using [restclient-mode](https://github.com/pashky/restclient.el) for emacs, to fire off requests).

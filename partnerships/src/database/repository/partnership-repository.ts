@@ -1,13 +1,19 @@
 import { PartnershipModel, IPartnership } from "../models";
 
 class PartnershipRepository {
-    async createPartnership({ description, brandId, influencerId, partnershipDate  }: IPartnership){
+    async createPartnership({
+        description,
+        brandId,
+        influencerId,
+        productId,
+        partnershipDate
+    }: IPartnership){
         try {
           const partnership = new PartnershipModel({
             description,
-            origin,
             brandId,
             partnershipDate,
+            productId,
             influencerId,
             isActive: true
           })
@@ -30,9 +36,9 @@ class PartnershipRepository {
          }
     }
 
-    async deletePartnership(id: string) {
+    async terminatePartnership(id: string) {
        try {
-         await PartnershipModel.findByIdAndDelete({ _id: id })
+         await PartnershipModel.findByIdAndUpdate(id, { isActive: false })
        } catch (error) {
          console.error(error)
        }
@@ -43,26 +49,6 @@ class PartnershipRepository {
            const partnership =  await PartnershipModel.findById(id);
            console.log('[Repository]: returning partnership with Id: ', partnership)
            return partnership
-         } catch (error) {
-           console.error(error)
-           // throw new Error('API Error', STATUS_CODES)
-         }
-    }
-
-    async findByIPR(right: string){
-         try {
-            const partnerships = await PartnershipModel.find({ IPR: right });
-            return partnerships;
-         } catch (error) {
-           console.error(error)
-           // throw new Error('API Error', STATUS_CODES)
-         }
-    }
-
-    async findSelectedPartnerships(selectedIds: string[]){
-         try {
-           const partnerships = await PartnershipModel.find().where('_id').in(selectedIds.map(_id => _id)).exec();
-           return partnerships;
          } catch (error) {
            console.error(error)
            // throw new Error('API Error', STATUS_CODES)

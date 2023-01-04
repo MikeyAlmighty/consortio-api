@@ -1,11 +1,12 @@
 import { ProductModel, IProduct } from "../models";
 
 class ProductRepository {
-    async createProduct({ name, description }: IProduct){
+    async createProduct({ name, description, brandId }: IProduct){
         try {
           const product = new ProductModel({
             name,
-            description
+            description,
+            brandId
           })
 
           const productResult = await product.save();
@@ -16,9 +17,9 @@ class ProductRepository {
         }
     }
 
-    async patchProduct({ id, name, description }: IProduct){
+    async patchProduct({ id: productId, name, description }: IProduct){
         try {
-          await ProductModel.findByIdAndUpdate(id, {
+          await ProductModel.findByIdAndUpdate(productId, {
               name,
               description
           })
@@ -38,9 +39,10 @@ class ProductRepository {
          }
     }
 
-    async findById(id: string){
+    async findById(productId: string){
          try {
-           const product =  await ProductModel.findById(id);
+           const product = await ProductModel.findById(productId);
+           // TODO: Hit brandService with brandId from product
            return product
          } catch (error) {
            console.error(error)
@@ -48,9 +50,19 @@ class ProductRepository {
          }
     }
 
-    async deleteProduct(id: string) {
+    async findProductsByBrand(brandId: string){
+         try {
+            const brands = await ProductModel.find({ brandId });
+            return brands;
+         } catch (error) {
+           console.error(error)
+           // throw new Error('API Error', STATUS_CODES)
+         }
+    }
+
+    async deleteProduct(productId: string) {
        try {
-         await ProductModel.findByIdAndDelete({ _id: id })
+         await ProductModel.findByIdAndDelete({ _id: productId })
        } catch (error) {
          console.error(error)
        }

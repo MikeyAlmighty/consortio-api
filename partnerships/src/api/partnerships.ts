@@ -24,13 +24,24 @@ export default (app: Express) => {
     });
 
     app.post("/", async (req: Request, res: Response) => {
-        const { name, origin, IPR, incorporationDate } = req.body
+        const {
+          brandName,
+          influencerName,
+          productName,
+          brandId,
+          influencerId,
+          partnershipDate,
+          productId,
+        } = req.body
         try {
           const partnership = await service.createPartnership({
-            name,
-            origin,
-            IPR,
-            incorporationDate
+            // TODO: For now let FE pass the friendly names, but moving to event to retreive names (via Id)
+            description: `Partnership between ${brandName} (brand) and ${influencerName} (influencer) for ${productName} (product).`,
+            brandId,
+            influencerId,
+            productId,
+            partnershipDate,
+            isActive: true
           })
           res.status(201).json(partnership)
         } catch (error) {
@@ -39,10 +50,10 @@ export default (app: Express) => {
         }
     })
 
-    app.delete("/:id", async (req: Request, res: Response) => {
+    app.patch("/:id", async (req: Request, res: Response) => {
       const { id } = req.params
       try {
-        await service.deletePartnership(id)
+        await service.terminatePartnership(id)
         res.status(204).json({})
       } catch (error) {
         res.status(400).json({ error })

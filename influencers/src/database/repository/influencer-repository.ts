@@ -1,12 +1,11 @@
 import { InfluencerModel, IInfluencer } from "../models";
 
 class InfluencerRepository {
-    async createInfluencer({ firstName, lastName, handle, clicks, posts, socialDetails }: IInfluencer){
+    async createInfluencer({ firstName, lastName, clicks, posts, socialDetails }: IInfluencer){
         try {
           const influencer = new InfluencerModel({
               firstName,
               lastName,
-              handle,
               clicks,
               posts,
               socialDetails

@@ -19,12 +19,12 @@ class PartnershipService {
         return partnership
     }
 
-   async terminatePartnership(id: IPartnership['id']){
-      id ? await this.repository.terminatePartnership(id) :  null
+   async terminatePartnership(partnershipId: string){
+      await this.repository.terminatePartnership(partnershipId)
     }
 
-    async getById(id: IPartnership['id']) {
-      const partnership = id && await this.repository.findById(id)
+    async getById(partnershipId: string) {
+      const partnership = await this.repository.findById(partnershipId)
       return partnership
     }
 
@@ -43,9 +43,8 @@ class PartnershipService {
             case 'CREATE_PARTNERSHIP':
                 this.createPartnership(partnership)
                 break;
-                break;
             case 'TERMINATE_PARTNERSHIP':
-                partnership.id && this.terminatePartnership(partnership.id)
+                partnership?.id && this.terminatePartnership(partnership.id)
                 break;
             case 'TEST_PARTNERSHIP':
                 console.log('Partnership Event HIT!')

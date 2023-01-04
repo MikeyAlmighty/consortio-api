@@ -24,8 +24,13 @@ class ProductService {
         return product
     }
 
-    async getById(id: string) {
-      const product = await this.repository.findById(id)
+    async getById(productId: string) {
+      const product = await this.repository.findById(productId)
+      return product
+    }
+
+    async getByBrandId(brandId: string) {
+      const product = await this.repository.findProductsByBrand(brandId)
       return product
     }
 
@@ -34,9 +39,20 @@ class ProductService {
       return products
     }
 
-    async deleteProduct(id: IProduct['id']){
-      id ? await this.repository.deleteProduct(id) :  null
+    async deleteProduct(productId: string){
+      await this.repository.deleteProduct(productId)
     }
+
+    // async getProductPayload (id: string, event: string) {
+    //   const product = await this.repository.findById(id)
+    //     if (product) {
+    //         const payload = {
+    //             event,
+    //             data: { product, id }
+    //         }
+    //         return payload
+    //     }
+    // }
 
     async subscribeEvents(payload: EventsPayload) {
         console.log('Triggering.... Product Events')

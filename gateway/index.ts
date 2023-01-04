@@ -13,6 +13,7 @@ app.use(cors())
 
 app.use('/products', proxy('http://localhost:8002'))
 app.use('/influencers', proxy('http://localhost:8003'))
+app.use('/partnerships', proxy('http://localhost:8004'))
 app.use('/', proxy('http://localhost:8001')) // brands
 
 app.listen(PORT, () => {

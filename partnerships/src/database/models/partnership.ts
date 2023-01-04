@@ -1,30 +1,42 @@
 import mongoose, { Schema } from "mongoose"
 
 export interface IPartnership {
-  id?: String
-  description: String
-  brandId: String
-  influencerId: String
-  productIds: String[] // multiple product(Id)s
+  id?: string
+  description: string
+  brandId: string
+  influencerId: string
+  productId: string
   partnershipDate: Date
-  terminationdate?: Date
+  terminationDate?: Date
   isActive: boolean
 }
 
 const partnershipSchema = new Schema<IPartnership>({
     description: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
     brandId: {
-        type: String
+      type: String,
+      required: true
     },
     influencerId: {
-        type: String
+      type: String,
+      required: true
     },
-    productIds: [{
-        type: String
-    }]
+    productId: {
+      type: String
+    },
+    partnershipDate: {
+      type: Date,
+      required: true
+    },
+    terminationDate: {
+      type: Date
+    },
+    isActive: {
+      type: Boolean
+    },
 })
 
 export default mongoose.model<IPartnership>('partnership', partnershipSchema)
