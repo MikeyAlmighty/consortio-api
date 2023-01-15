@@ -53,14 +53,13 @@ PORT=XXX
 MONGODB_URI=XXX
 ```
 
-### Running:
+### Running
+`cd` into each service:
 
-```js
-cd gateway/ && npm run dev
-cd influencers/ && npm run dev
-cd brands/ && npm run dev
-cd products/ && npm run dev
-```
+Dev: `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
+Prod: `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build`
+
+Bringing down:   `docker-compose -f docker-compose.yml -f docker-compose.ENV.yml down`
 
 ### REST Collection
 

@@ -1,0 +1,6 @@
+version: "3"
+services:
+  api-partnerships:
+    build: .
+    ports:
+      - "8004:8004"
