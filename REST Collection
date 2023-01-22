@@ -1,142 +1,20 @@
-## *BRANDS_START*
+# GET Products
+GET http://localhost:8080/api/v1/products
 
-# getAll
-GET http://localhost:8000
+# GET Product
+GET http://localhost:8080/api/v1/products/63b59c7cf859166dd4e81292
 
-# getById
-GET http://localhost:8000/id
-
-# patch
-PATCH http://localhost:8000/id
+# POST product
+POST http://localhost:8080/api/v1/products
 Content-Type: application/json
 {
- "name": "Adidas123",
- "origin": "Russia",
- "IPR": "PATENT",
- "incorporationDate": "2022-12-31"
-}
-
-# create
-POST http://localhost:8000
-Content-Type: application/json
-{
- "name": "Adidas4",
- "origin": "Germany",
- "IPR": "PATENT",
- "incorporationDate": "2022-12-31"
-}
-
-# delete
-DELETE http://localhost:8000/id
-
-# testEvents
-POST http://localhost:8000/events
-Content-Type: application/json
-{
-  "payload": {
-    "event": "TESTING",
-    "data": {}
-  }
-}
-
-## *BRANDS_END*
-## *PRODUCTS_START*
-
-# getAll
-GET http://localhost:8000/products
-
-# getById
-GET http://localhost:8000/products/id
-
-# getByBrandId
-GET http://localhost:8000/products/brand/id
-
-# patch
-PATCH http://localhost:8000/products/id
-Content-Type: application/json
-{
- "name": "Hand Towel",
- "description": "Never leave home without it?"
-}
-
-# create
-POST http://localhost:8000/products
-Content-Type: application/json
-{
- "name": "Hand Towel",
- "description": "Never leave home without it!",
+ "name": "Doom Necklace",
+ "description": "The necklace of Doom",
  "brandId": "63b4411023c361b6389c7c9f"
 }
 
-# delete
-DELETE http://localhost:8000/products/id
+# GET Influencers
+GET http://localhost:8080/api/v1/influencers
 
-## *PRODUCTS_END*
-## *INFLUENCERS_START*
-
-# getAll
-GET http://localhost:8000/influencers
-
-# getById
-GET http://localhost:8000/influencers/id
-
-# create
-POST http://localhost:8000/influencers
-Content-Type: application/json
-{
-  "firstName": "Joey",
-  "lastName": "Shoes",
-  "posts": 20,
-  "clicks": 400,
-  "socialDetails": {
-    "handle": "Joey2Shoes",
-    "email": "joey2shoes@gmail.com",
-    "instagram": "https://www.instagram.com/joey2shoes",
-    "youtube": "https://www.youtube.com/@joey_2_shoes"
-  }
-}
-
-# patch
-PATCH http://localhost:8000/influencers/id
-Content-Type: application/json
-{
-  "firstName": "Joey",
-  "lastName": "Shoes",
-  "posts": 20,
-  "clicks": 400,
-  "socialDetails": {
-    "handle": "Joey2Shoes",
-    "email": "joey2shoes@gmail.com",
-    "instagram": "https://www.instagram.com/joey2shoes",
-    "youtube": "https://www.youtube.com/@joey_2_shoes"
-  }
-}
-
-# delete
-DELETE http://localhost:8000/influencers/id
-
-## *INFLUENCERS_END*
-## *PARTNERSHIPS_START*
-
-# getAll
-GET http://localhost:8000/partnerships
-
-# getById
-GET http://localhost:8000/partnerships/id
-
-# create
-POST http://localhost:8000/partnerships
-Content-Type: application/json
-{
-  "description": "Partnership between Dietrich Inc (Brand) and (Influencer)",
-  "brandId": "63b43fd923c361b6389c7c8f",
-  "influencerId": "63b43cbf54a0aec204cd9328",
-  "productId": "63b56daef88589630e507549",
-  "partnershipDate": "2022-12-31",
-  "isActive": true
-}
-
-# terminate
-PATCH http://localhost:8000/partnerships/id
-
-## *PARTNERSHIPS_END*
+# GET Influencer
+GET http://localhost:8080/api/v1/influencers/63b43cbf54a0aec204cd9328

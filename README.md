@@ -10,8 +10,8 @@
 
 ### Languages/Frameworks
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [Express.js](https://expressjs.com/)
+- [Java](https://www.java.com/en/)
+- [Spring Boot](https://spring.io/projects/spring-boot)
 
 ### Database
 
@@ -22,44 +22,30 @@ MongoDB (Shared database)
 
 ### Service structure
 
-1. (root)
-   - src
-     - api
-     - database
-       - models
-       - repository
-     - services
-       - xxx-service.ts
-   - package.json
-   - package-lock.json
-   - .env
+<!-- 1. (root) -->
+<!--    - src -->
+<!--      - api -->
+<!--      - database -->
+<!--        - models -->
+<!--        - repository -->
+<!--      - services -->
+<!--        - xxx-service.ts -->
+<!--    - package.json -->
+<!--    - package-lock.json -->
+<!--    - .env -->
 
 ### Services
 
-- [Brands](./brands/package.json)
-- [Influencers](./influencers/package.json)
-- [Products](./products/package.json)
-- [Partnerships](./partnerships/package.json)
+- Brands
+- Influencers
+- Products
+- Partnerships
 
 ## Setup and Running
 
 ### Setup:
 
-For each service (in root directory) `npm i`
-Add `.env` file with following ENV vars:
-
-```
-PORT=XXX
-MONGODB_URI=XXX
-```
-
 ### Running
-`cd` into each service:
-
-Dev: `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
-Prod: `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build`
-
-Bringing down:   `docker-compose -f docker-compose.yml -f docker-compose.ENV.yml down`
 
 ### REST Collection
 
