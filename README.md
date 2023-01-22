@@ -4,7 +4,7 @@
 
 ![Earth](docs/earth.jpg)
 
-## :construction: Work in Progress
+## :construction: Deprecating (Switch over to v2-java branch)
 
 ## Architecture
 
