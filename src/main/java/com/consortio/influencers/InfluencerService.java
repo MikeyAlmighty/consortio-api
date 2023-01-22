@@ -19,4 +19,12 @@ public class InfluencerService {
     public Optional<Influencer> getById(ObjectId id){
         return influencerRepository.findById(id);
     }
+
+    public Influencer createInfluencer(Influencer newInfluencer){
+        return influencerRepository.insert(newInfluencer);
+    }
+    
+    public void deleteInfluencer(ObjectId id) {
+        influencerRepository.deleteById(id);
+    }
 }

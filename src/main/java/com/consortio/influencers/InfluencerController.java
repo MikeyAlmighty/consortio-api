@@ -7,8 +7,11 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,8 +31,14 @@ public class InfluencerController {
         return new ResponseEntity<Optional<Influencer>>(influencerService.getById(id), HttpStatus.OK);
     }
 
-    // @PostMapping
-    // public ResponseEntity<Influencer> createInfluencer(@RequestBody Influencer newInfluencer) {
-    //     return new ResponseEntity<Influencer>(influencerService.createInfluencer(), HttpStatus.OK);
-    // }
+    @PostMapping
+    public ResponseEntity<Influencer> createInfluencer(@RequestBody Influencer newInfluencer) {
+        return new ResponseEntity<Influencer>(influencerService.createInfluencer(newInfluencer), HttpStatus.OK);
+    }
+
+    @DeleteMapping ("/{id}")
+    public ResponseEntity<?> deleteInfluencer(@PathVariable ObjectId id){
+        influencerService.deleteInfluencer(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

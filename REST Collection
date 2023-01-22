@@ -18,3 +18,22 @@ GET http://localhost:8080/api/v1/influencers
 
 # GET Influencer
 GET http://localhost:8080/api/v1/influencers/63b43cbf54a0aec204cd9328
+
+# POST Influencer
+POST http://localhost:8080/api/v1/influencers
+Content-Type: application/json
+{
+ "firstName": "Ryan",
+ "lastName": "Reynolds",
+ "numbers": 0,
+ "posts": 8,
+ "clicks": 5,
+ "socialDetails": {
+    "handle": "deadpool",
+    "email": "ryan.deadpool@gmail.com",
+    "instagram": "http://chimichangas.insta"
+  }
+}
+
+# DELETE Influencer
+DELETE http://localhost:8080/api/v1/influencers/63cd08ed8691aa07982a155a
