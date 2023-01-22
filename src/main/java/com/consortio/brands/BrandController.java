@@ -1,4 +1,4 @@
-package com.consortio.influencers;
+package com.consortio.brands;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,30 +16,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/influencers")
-public class InfluencerController {
+@RequestMapping("/api/v1/brands")
+public class BrandController {
     @Autowired
-    private InfluencerService influencerService;
+    private BrandService brandService;
 
     @GetMapping
-    public ResponseEntity<List<Influencer>> getAllInfluencers() {
-        return new ResponseEntity<List<Influencer>>(influencerService.getAllInfluencers(), HttpStatus.OK);
+    public ResponseEntity<List<Brand>> getAllBrands() {
+        return new ResponseEntity<List<Brand>>(brandService.getAllBrands(), HttpStatus.OK);
     }
 
-    @GetMapping ("/{id}")
-    public ResponseEntity<Optional<Influencer>> getById(@PathVariable ObjectId id) {
-        return new ResponseEntity<Optional<Influencer>>(influencerService.getById(id), HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Brand>> getById(@PathVariable ObjectId id) {
+        return new ResponseEntity<Optional<Brand>>(brandService.getById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Influencer> createInfluencer(@RequestBody Influencer newInfluencer) {
-        influencerService.createInfluencer(newInfluencer);
+    public ResponseEntity<Brand> createBrand(@RequestBody Brand newBrand) {
+        brandService.createBrand(newBrand);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping ("/{id}")
     public ResponseEntity<?> deleteInfluencer(@PathVariable ObjectId id){
-        influencerService.deleteInfluencer(id);
+        brandService.deleteBrand(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

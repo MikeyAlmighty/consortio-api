@@ -27,5 +27,9 @@ public class ProductService {
       // mongoTemplate.update(Product.class)
       //    .matching(Criteria.where("brandId").is(brandId));
          // .apply(new Update().push("").value(product))
-      }
    }
+
+   public void deleteProduct(ObjectId id){
+      productRepository.deleteById(id);
+   }
+}

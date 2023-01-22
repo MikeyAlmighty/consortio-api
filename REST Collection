@@ -4,7 +4,7 @@ GET http://localhost:8080/api/v1/products
 # GET Product
 GET http://localhost:8080/api/v1/products/63b59c7cf859166dd4e81292
 
-# POST product
+# POST Product
 POST http://localhost:8080/api/v1/products
 Content-Type: application/json
 {
@@ -12,6 +12,9 @@ Content-Type: application/json
  "description": "The necklace of Doom",
  "brandId": "63b4411023c361b6389c7c9f"
 }
+
+# DELETE Product
+DELETE http://localhost:8080/api/v1/brands/63b56ddef88589630e507553
 
 # GET Influencers
 GET http://localhost:8080/api/v1/influencers
@@ -37,3 +40,23 @@ Content-Type: application/json
 
 # DELETE Influencer
 DELETE http://localhost:8080/api/v1/influencers/63cd08ed8691aa07982a155a
+
+# GET Brands
+GET http://localhost:8080/api/v1/brands
+
+# GET Brand
+GET http://localhost:8080/api/v1/brands/63b43fdb23c361b6389c7c93
+
+# POST Brand
+POST http://localhost:8080/api/v1/brands
+Content-Type: application/json
+{
+    "name": "Adidas",
+    "origin": "Somewhere",
+    "active": false,
+    "incorporationDate": "2032-02-25T11:13:03.913+00:00",
+    "ipr": "TRADE_MARK"
+}
+
+# DELETE Brand
+DELETE http://localhost:8080/api/v1/brands/63b43fdb23c361b6389c7c93
